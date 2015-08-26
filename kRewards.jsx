@@ -1,6 +1,8 @@
 Rewards = new Mongo.Collection("rewards");
 Tasks = new Mongo.Collection("tasks");
 
+var Tab = mui.Tab
+
 if (Meteor.isClient) {
 
   injectTapEventPlugin();
@@ -8,24 +10,27 @@ if (Meteor.isClient) {
   FlowRouter.route('/', {
 
     action: function() {
-      console.log('root');
-    	ReactLayout.render(App);
+    	ReactLayout.render(MainLayout, {
+        content: <RewardView />
+      });
     }
   });
 
   FlowRouter.route('/rewards', {
 
     action: function() {
-      console.log('root');
-    	ReactLayout.render(App);
+      ReactLayout.render(MainLayout, {
+        content: <RewardView />
+      });
     }
   });
 
   FlowRouter.route('/tasks', {
 
     action: function() {
-      console.log('create')
-    	ReactLayout.render(TaskView);
+      ReactLayout.render(MainLayout, {
+        content: <TaskView />
+      });
     }
   });
 }

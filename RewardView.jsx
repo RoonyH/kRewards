@@ -7,7 +7,7 @@ var Paper = mui.Paper;
 var CardHeader = mui.CardHeader;
 var AppBar = mui.AppBar;
 
-App = React.createClass({
+RewardView = React.createClass({
 
   mixins: [ReactMeteorData],
 
@@ -61,9 +61,6 @@ App = React.createClass({
   render: function() {
 
     return <div>
-      <AppBar
-        title="kRewards" 
-        zDepth={1} />
       <Paper
         style={{
           float: 'left',

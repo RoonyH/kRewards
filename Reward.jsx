@@ -20,8 +20,9 @@ Reward = React.createClass({
 
   render() { 
   	var reward = this.props.reward;
+    var completed = this.props.completed || 0;
 
-    var completePercentage = (this.props.completed / reward.points ) * 100;
+    var completePercentage = (completed / reward.points ) * 100;
 
   	var iconButton = <FontIcon className="material-icons">info</FontIcon>
 

@@ -52,15 +52,13 @@ TaskView = React.createClass({
   render: function() {
 
     return <div>
-      <AppBar
-        title="Tasks" 
-        zDepth={1} />
       <Paper
         style={{
           float: 'left',
-          width: '50%',
           textAlign: 'center',
-          padding: '20px'
+          width: '49.75%',
+          padding: '20px',
+          marginLeft: '0.25%'
         }}>
         <TextField
           hintText="Name of the task"
@@ -85,8 +83,9 @@ TaskView = React.createClass({
       <Paper
         style={{
           float: 'left',
-          width: '50%',
-          padding: '20px'
+          width: '49.75%',
+          padding: '20px',
+          marginLeft: '0.25%'
         }}>
         <List 
           subheader="Current Tasks"
