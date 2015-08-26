@@ -58,7 +58,7 @@ TaskView = React.createClass({
           textAlign: 'center',
           width: '49.75%',
           padding: '20px',
-          marginLeft: '0.25%'
+          marginRight: '0.25%'
         }}>
         <TextField
           hintText="Name of the task"

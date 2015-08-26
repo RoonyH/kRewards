@@ -16,13 +16,15 @@ MainLayout = React.createClass({
 
   render() {
     return <div> 
-      <Tabs>
+      <Tabs value={this.props.selectedTab}>
       <Tab label="Rewards"
+        value="rewards"
         onActive= {function(tab){
           FlowRouter.go('/rewards');
         }} >
       </Tab>
-      <Tab label="Tasks" 
+      <Tab label="Tasks"
+        value="tasks"
         onActive= {function(tab){
           FlowRouter.go('/tasks');
         }} >

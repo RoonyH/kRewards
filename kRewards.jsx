@@ -11,6 +11,7 @@ if (Meteor.isClient) {
 
     action: function() {
     	ReactLayout.render(MainLayout, {
+        selectedTab: "rewards",
         content: <RewardView />
       });
     }
@@ -20,6 +21,7 @@ if (Meteor.isClient) {
 
     action: function() {
       ReactLayout.render(MainLayout, {
+        selectedTab: "rewards",
         content: <RewardView />
       });
     }
@@ -29,6 +31,7 @@ if (Meteor.isClient) {
 
     action: function() {
       ReactLayout.render(MainLayout, {
+        selectedTab: "tasks",
         content: <TaskView />
       });
     }
