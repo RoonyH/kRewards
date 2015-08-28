@@ -6,6 +6,7 @@ var Card = mui.Card;
 var Paper = mui.Paper;
 var CardHeader = mui.CardHeader;
 var AppBar = mui.AppBar;
+var DropDownMenu = mui.DropDownMenu;
 
 TaskView = React.createClass({
 
@@ -21,16 +22,18 @@ TaskView = React.createClass({
     var name = this.refs.taskName.getValue().trim();
     var points = parseInt(this.refs.taskPoints.getValue().trim());
     var description = this.refs.taskDescription.getValue().trim();
+    var occurence = this.refs.taskDescription.getValue();
 
-    Tasks.insert({
+    Meteor.call('addTask', {
       name: name,
       points: points,
       description: description,
-      createdAt: new Date()
-    });
+      occurence: occurence
+    })
 
-    React.findDOMNode(this.refs.taskName).value = "";
-    React.findDOMNode(this.refs.taskPoints).value = "";
+    this.refs.taskName.setValue('');
+    this.refs.taskPoints.setValue('');
+    this.refs.taskDescription.setValue('');
   },
 
   childContextTypes: {
@@ -50,6 +53,13 @@ TaskView = React.createClass({
   },
 
   render: function() {
+
+
+    let menuItems = [
+       { payload: 'daily', text: 'Daily' },
+       { payload: 'monthly', text: 'Monthly' },
+       { payload: 'oneTime', text: 'One Time' }
+    ];
 
     return <div>
       <Paper
@@ -72,11 +82,13 @@ TaskView = React.createClass({
           ref="taskPoints" />
         <TextField
           style = {{
-            width: "100%"
+            width: "70%"
           }}
           hintText="Description of the task"
           floatingLabelText="Description"
           ref="taskDescription" />
+        <DropDownMenu menuItems={menuItems}
+          ref="taskOccurence" />
         <br />
         <RaisedButton label="Create" onClick={this.handleSubmit} />
       </Paper>

@@ -13,17 +13,14 @@ Task = React.createClass({
 	infoMenuClicked(e, item){
     e.stopPropagation();
 		var rId = item.props.taskId;
-    console.log(this.props)
-		if(item.props.index == 2){
-			console.log(rId)
-			Tasks.remove(rId)
+	
+  	if(item.props.index == 2){ // if delete button
+			Meteor.call('removeTask', rId);
 		}
 	},
 
-  completedCheckBoxChecked(e, c){
-    Tasks.update(this.props.task._id, {
-      $set: {completed: c}
-    });
+  completedCheckBoxChecked(e, checked){
+    Meteor.call('setTaskCompleted', this.props.task._id, checked);
   },
 
   render() { 

@@ -13,8 +13,7 @@ Reward = React.createClass({
 	infoMenuClicked(e, item){
 		var rId = this.props.reward._id;
 		if(item.props.index == 2){
-			console.log(rId)
-			Rewards.remove(rId)
+			Meteor.call('removeReward', rId)
 		}
 	},
 

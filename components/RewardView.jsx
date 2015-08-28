@@ -22,14 +22,13 @@ RewardView = React.createClass({
     var name = this.refs.rewardName.getValue().trim();
     var points = parseInt(this.refs.rewardPoints.getValue().trim());
 
-    Rewards.insert({
+    Meteor.call('addReward', {
       name: name,
-      points: points,
-      createdAt: new Date()
+      points: points
     });
 
-    React.findDOMNode(this.refs.rewardName).value = "";
-    React.findDOMNode(this.refs.rewardPoints).value = "";
+    this.refs.rewardName.setValue("");
+    this.refs.rewardPoints.setValue("");
   },
 
   childContextTypes: {
