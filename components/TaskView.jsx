@@ -61,51 +61,38 @@ TaskView = React.createClass({
        { payload: 'oneTime', text: 'One Time' }
     ];
 
-    return <div>
-      <Paper
-        style={{
-          float: 'left',
-          textAlign: 'center',
-          width: '49.75%',
-          padding: '20px',
-          marginRight: '0.25%'
-        }}>
-        <TextField
-          hintText="Name of the task"
-          floatingLabelText="Name"
-          ref="taskName" />
-        <br />
-        <TextField
-          hintText="Points for the task"
-          floatingLabelText="Points"
-          type="number" 
-          ref="taskPoints" />
-        <TextField
-          style = {{
-            width: "70%"
-          }}
-          hintText="Description of the task"
-          floatingLabelText="Description"
-          ref="taskDescription" />
-        <DropDownMenu menuItems={menuItems}
-          ref="taskOccurence" />
-        <br />
-        <RaisedButton label="Create" onClick={this.handleSubmit} />
-      </Paper>
-      <Paper
-        style={{
-          float: 'left',
-          width: '49.75%',
-          padding: '20px',
-          marginLeft: '0.25%'
-        }}>
-        <List 
-          subheader="Current Tasks"
-            style={{
-          }}>
-          {this.rendertasks()}
-        </List>
-      </Paper>
-    </div>
+
+    return <SplitView
+        leftContent= <div>
+          <TextField
+            hintText="Name of the task"
+            floatingLabelText="Name"
+            ref="taskName" />
+          <br />
+          <TextField
+            hintText="Points for the task"
+            floatingLabelText="Points"
+            type="number" 
+            ref="taskPoints" />
+          <TextField
+            style = {{
+              width: "70%"
+            }}
+            hintText="Description of the task"
+            floatingLabelText="Description"
+            ref="taskDescription" />
+          <DropDownMenu menuItems={menuItems}
+            ref="taskOccurence" />
+          <br />
+          <RaisedButton label="Create" onClick={this.handleSubmit} />
+        </div>
+      rightContent= <div>
+          <List 
+            subheader="Current Tasks"
+              style={{
+            }}>
+            {this.rendertasks()}
+          </List>
+        </div> />  
   }
 });

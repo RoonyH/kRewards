@@ -59,42 +59,28 @@ RewardView = React.createClass({
 
   render: function() {
 
-    return <div>
-      <Paper
-        style={{
-          float: 'left',
-          width: '49.75%',
-          textAlign: 'center',
-          padding: '20px',
-          marginRight: '0.25%'
-        }}>
-        <TextField
-          hintText="Name of the reward"
-          floatingLabelText="Name"
-          ref="rewardName" />
-        <br />
-        <TextField
-          hintText="Points for the reward"
-          floatingLabelText="Points"
-          type="number" 
-          ref="rewardPoints" />
-        <br />
-        <RaisedButton label="Create" onClick={this.handleSubmit} />
-      </Paper>
-      <Paper
-        style={{
-          float: 'left',
-          width: '49.75%',
-          padding: '20px',
-          marginLeft: '0.25%'
-        }}>
-        <List 
-          subheader="Current kRewards"
-            style={{
-          }}>
-          {this.renderRewards()}
-        </List>
-      </Paper>
-    </div>
+    return <SplitView
+      leftContent= <div>
+          <TextField
+            hintText="Name of the reward"
+            floatingLabelText="Name"
+            ref="rewardName" />
+          <br />
+          <TextField
+            hintText="Points for the reward"
+            floatingLabelText="Points"
+            type="number" 
+            ref="rewardPoints" />
+          <br />
+          <RaisedButton label="Create" onClick={this.handleSubmit} />
+        </div>
+      rightContent= <div>
+          <List 
+            subheader="Current kRewards"
+              style={{
+            }}>
+            {this.renderRewards()}
+          </List>
+        </div> />  
   }
 });
