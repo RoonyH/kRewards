@@ -15,3 +15,5 @@ npm-container
 kadira:flow-router-ssr
 kadira:debug
 meteorhacks:kadira
+accounts-ui
+accounts-password

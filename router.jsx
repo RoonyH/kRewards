@@ -1,6 +1,20 @@
 Rewards = new Mongo.Collection("rewards");
 Tasks = new Mongo.Collection("tasks");
 
+Meteor.subscribe("tasks");
+Meteor.subscribe("rewards");
+
+if (Meteor.isServer) {
+  Meteor.publish("tasks", function () {
+    return Tasks.find();
+  });
+
+  Meteor.publish("rewards", function () {
+    return Rewards.find();
+  });
+}
+
+
 Meteor.methods({
   addReward(reward) {
     if(Meteor.isServer) { 
@@ -43,8 +57,10 @@ FlowRouter.route('/', {
 
   action: function() {
   	ReactLayout.render(MainLayout, {
-      selectedTab: "rewards",
-      content: <RewardView />
+      content: <SplitLayout
+        selectedTab= "rewards"
+        content= <RewardView />>
+      </SplitLayout>
     });
   }
 });
@@ -53,8 +69,10 @@ FlowRouter.route('/rewards', {
 
   action: function() {
     ReactLayout.render(MainLayout, {
-      selectedTab: "rewards",
-      content: <RewardView />
+      content: <SplitLayout
+        selectedTab= "rewards"
+        content= <RewardView />>
+      </SplitLayout>
     });
   }
 });
@@ -63,8 +81,10 @@ FlowRouter.route('/tasks', {
 
   action: function() {
     ReactLayout.render(MainLayout, {
-      selectedTab: "tasks",
-      content: <TaskView />
+      content: <SplitLayout
+        selectedTab= "tasks"
+        content= <TaskView />>
+      </SplitLayout>
     });
   }
 });

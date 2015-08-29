@@ -1,5 +1,4 @@
-var Tab = mui.Tab
-var Tabs = mui.Tabs
+var AppBar = mui.AppBar
 
 var ThemeManager = new mui.Styles.ThemeManager();
 
@@ -16,20 +15,9 @@ MainLayout = React.createClass({
 
   render() {
     return <div> 
-      <Tabs value={this.props.selectedTab}>
-      <Tab label="Rewards"
-        value="rewards"
-        onActive= {function(tab){
-          FlowRouter.go('/rewards');
-        }} >
-      </Tab>
-      <Tab label="Tasks"
-        value="tasks"
-        onActive= {function(tab){
-          FlowRouter.go('/tasks');
-        }} >
-      </Tab>
-    </Tabs>
+      <AppBar
+        title="k Rewards">
+      </AppBar>
       {this.props.content}
     </div>
   }
